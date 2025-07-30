@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=3 uid="uid://byp1xemthwn70"]
+
+[ext_resource type="Script" uid="uid://drk84hcv8rjl" path="res://addons/godot_notification_system/styles/default_banner.gd" id="1_0652q"]
+[ext_resource type="Texture2D" uid="uid://p85re7oi3yvo" path="res://icon.svg" id="2_lvdeh"]
+
+[node name="DefaultBanner" type="PanelContainer"]
+custom_minimum_size = Vector2(0, 40)
+offset_right = 40.0
+offset_bottom = 40.0
+size_flags_horizontal = 3
+script = ExtResource("1_0652q")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="IconRect" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("2_lvdeh")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="MessageLabel" type="Label" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "This is a banner message."
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="CloseButton" type="Button" parent="MarginContainer/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "X"

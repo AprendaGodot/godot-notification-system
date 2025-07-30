@@ -1,0 +1,61 @@
+[gd_scene load_steps=3 format=3 uid="uid://b52eeqmjltlcu"]
+
+[ext_resource type="Script" uid="uid://vrjehhihvvrf" path="res://addons/godot_notification_system/styles/default_toast.gd" id="1_e2iec"]
+[ext_resource type="Texture2D" uid="uid://p85re7oi3yvo" path="res://icon.svg" id="2_ys4km"]
+
+[node name="DefaultToast" type="PanelContainer"]
+custom_minimum_size = Vector2(200, 50)
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+script = ExtResource("1_e2iec")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 5
+
+[node name="IconRect" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("2_ys4km")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="TitleLabel" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(85, 25)
+layout_mode = 2
+text = "Toast Title"
+autowrap_mode = 2
+
+[node name="MessageLabel" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 25)
+layout_mode = 2
+size_flags_vertical = 3
+text = "This is a toast message."
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+size_flags_vertical = 8
+mouse_filter = 2
+value = 50.0
+show_percentage = false
